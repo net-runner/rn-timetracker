@@ -41,7 +41,7 @@ export const MainScreen = observer(({}: Props) => {
 				showsVerticalScrollIndicator={false}
 				stickyHeaderIndices={[0]}
 				keyExtractor={item => item.id}
-				data={Filter === '' ? trackers : launchesFilteredByTrackerName}
+				data={Filter === '' ? trackers.slice() : launchesFilteredByTrackerName}
 				ListHeaderComponent={
 					<HeaderContainer>
 						{currentlyTrackedItem ? (
