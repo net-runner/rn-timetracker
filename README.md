@@ -17,7 +17,7 @@ If there is anything unclear, reach outthrough email.
 
 | Handle tracking |
 |:-------------------------:|
-<img src="https://user-images.githubusercontent.com/40372583/218484095-717d5507-e51e-45fe-902e-f40d86bc1ab4.png" width="200"/>
+<img src="https://user-images.githubusercontent.com/40372583/218487225-085c0e19-bf1f-4858-966b-76bbd1892c2a.png" width="200"/>
 
 
 ## Features
