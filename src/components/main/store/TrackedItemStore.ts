@@ -1,4 +1,4 @@
-import {makeAutoObservable} from 'mobx';
+import {action, makeAutoObservable} from 'mobx';
 import moment from 'moment';
 import {RootStore} from '../../../store/RootStore';
 import {persist} from '../../../utils/Persist';
@@ -7,8 +7,9 @@ import {TrackedItem} from '../TrackedItem';
 export class TrackedItemStore {
 	rootStore: RootStore;
 	isTracking: boolean = false;
-	currentlyTrackedItem?: TrackedItem;
+	currentlyTrackedItem: TrackedItem | undefined = undefined;
 	trackers: TrackedItem[] = [];
+	trackerInterval: number | undefined;
 
 	constructor(rootStore: RootStore) {
 		makeAutoObservable(this, {}, {autoBind: true});
@@ -33,6 +34,7 @@ export class TrackedItemStore {
 
 	public cleanTrackedItems() {
 		this.trackers = [];
+		this.cleanTracking();
 	}
 
 	public delateTrackedItem(id: string) {
@@ -52,11 +54,46 @@ export class TrackedItemStore {
 
 	public startTracking(item: TrackedItem) {
 		this.isTracking = true;
-		this.currentlyTrackedItem = item;
+
+		const tracker = this.trackers.find(tracker => tracker.id === item.id);
+		if (tracker) {
+			const startDate = moment(new Date()).format();
+			tracker.startedAt = startDate;
+			this.trackerInterval = setInterval(
+				action(() => {
+					tracker.intervalCounter += 1;
+				}),
+				1000,
+			);
+		}
+
+		this.currentlyTrackedItem = tracker;
 	}
 
-	public stopTracking() {
+	public stopTracking(item: TrackedItem) {
+		const tracker = this.trackers.find(tracker => tracker.id === item.id);
+		if (tracker) {
+			const startDate = moment(tracker.startedAt);
+			tracker.elapsed += moment(new Date()).diff(startDate, 'seconds');
+			tracker.startedAt = undefined;
+			tracker.intervalCounter = 0;
+		}
+
+		this.cleanTracking();
+	}
+
+	public cleanTracking() {
 		this.isTracking = false;
 		this.currentlyTrackedItem = undefined;
+		if (this.trackerInterval) {
+			clearInterval(this.trackerInterval);
+		}
+	}
+
+	public getCurrentItemElapsedTime() {
+		if (this.currentlyTrackedItem) {
+			return moment(new Date()).diff(moment(this.currentlyTrackedItem.startedAt), 'seconds');
+		}
+		return 0;
 	}
 }

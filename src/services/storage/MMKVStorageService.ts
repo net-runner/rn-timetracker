@@ -12,5 +12,10 @@ export class MMKVStorageService implements StorageService {
 			getItem: key => this.storage.getString(key) as string | null,
 			removeItem: key => this.storage.delete(key),
 		};
+
+		if (__DEV__) {
+			const {initializeMMKVFlipper} = require('react-native-mmkv-flipper-plugin');
+			initializeMMKVFlipper({default: this.storage});
+		}
 	}
 }
