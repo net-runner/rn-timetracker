@@ -56,7 +56,8 @@ const AbsoluteFillCloseModal = styled.Pressable({
 const ModalContainer = styled.View({
 	minHeight: '20%',
 	backgroundColor: DarkTheme.colors.background,
-	borderRadius: 20,
+	borderTopLeftRadius: 20,
+	borderTopRightRadius: 20,
 	borderTopWidth: 3,
 	borderLeftWidth: 3,
 	borderRightWidth: 3,
