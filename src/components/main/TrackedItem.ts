@@ -1,12 +1,11 @@
 import {makeAutoObservable} from 'mobx';
 import {nanoid} from 'nanoid';
 
-type OmitedValues = 'startedAt' | 'active' | 'elapsed' | 'id' | 'intervalCounter';
+type OmitedValues = 'startedAt' | 'elapsed' | 'id' | 'intervalCounter';
 
 export class TrackedItem {
 	id: string = nanoid();
 	name: string;
-	active: boolean = false;
 	createdAt: string;
 	startedAt?: string;
 	elapsed: number = 0;

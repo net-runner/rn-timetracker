@@ -12,6 +12,10 @@ export class RootStore {
 		this.trackedItemStore = new TrackedItemStore(this);
 		makeAutoObservable(this);
 	}
+
+	async initApp() {
+		await this.trackedItemStore.init();
+	}
 }
 
 export const RootStoreContext = createContext<RootStore>({} as RootStore);

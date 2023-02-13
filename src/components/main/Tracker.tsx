@@ -28,8 +28,6 @@ export const Tracker = observer(({item, info = false}: Props) => {
 	const showButton = isItemTracked || !isTracking;
 
 	const {navigate} = useNavigation<AppStackProps>();
-	const date = new Date(item.createdAt);
-	const dayMonthYear = date.getDay() + 1 + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 
 	const handlePlayButtonPress = () => {
 		if (isItemTracked) {
@@ -69,11 +67,11 @@ export const Tracker = observer(({item, info = false}: Props) => {
 						{info && (
 							<DateContainer>
 								<Row>
-									<Text14>{dayMonthYear}</Text14>
+									<Text14>{moment(item.createdAt).format('DD/MM/YYYY')}</Text14>
 									<StyledIcon name="calendar" color={'#f5f5f5'} />
 								</Row>
 								<Row>
-									<Text14>{date.toTimeString().split(' ')[0]}</Text14>
+									<Text14>{moment(item.createdAt).format('HH:mm')}</Text14>
 									<StyledIcon name="clockcircleo" color={'#f5f5f5'} />
 								</Row>
 							</DateContainer>

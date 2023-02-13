@@ -11,12 +11,15 @@ export const persist = <
 	name: string,
 	properties: (P | SerializableProperty<T, P>)[],
 	storageController: StorageController,
+	afterHydration?: () => void,
 ) => {
 	const persistInStorage = () => {
 		makePersistable(store, {
 			name,
 			properties,
 			storage: storageController,
+		}).then(_ => {
+			afterHydration && afterHydration();
 		});
 	};
 	const persistedStore = Array.from(PersistStoreMap.values()).find(el => el.storageName.includes(name));

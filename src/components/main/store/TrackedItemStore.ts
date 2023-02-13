@@ -21,7 +21,24 @@ export class TrackedItemStore {
 			'TrackedItemStore',
 			['isTracking', 'currentlyTrackedItem', 'trackers'],
 			rootStore.services.storage.storageController,
+			this.init,
 		);
+	}
+	public async init() {
+		if (this.currentlyTrackedItem && this.isTracking) {
+			const tracker = this.trackers.find(tracker => tracker.id === this.currentlyTrackedItem!.id);
+			if (tracker) {
+				tracker.intervalCounter = moment(new Date()).diff(tracker!.startedAt, 'seconds');
+
+				this.trackerInterval = setInterval(
+					action(() => {
+						tracker.intervalCounter += 1;
+					}),
+					1000,
+				);
+				this.currentlyTrackedItem = tracker;
+			}
+		}
 	}
 
 	public createTrackedItem(name: string, priority: number) {
@@ -88,12 +105,5 @@ export class TrackedItemStore {
 		if (this.trackerInterval) {
 			clearInterval(this.trackerInterval);
 		}
-	}
-
-	public getCurrentItemElapsedTime() {
-		if (this.currentlyTrackedItem) {
-			return moment(new Date()).diff(moment(this.currentlyTrackedItem.startedAt), 'seconds');
-		}
-		return 0;
 	}
 }

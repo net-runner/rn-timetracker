@@ -7,6 +7,8 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useStores} from '../../store/RootStore';
 import {Tracker} from './Tracker';
+import moment from 'moment';
+import {Text14} from '../Typography';
 
 type Props = {} & NativeStackScreenProps<AppStackParamList, Screen.TASKINFO>;
 
@@ -26,22 +28,20 @@ export const TrackedItemScreen = ({route, navigation}: Props) => {
 			<AbsoluteFillCloseModal onPress={goBack} />
 			<ModalContainer>
 				<Tracker item={item} info />
-				<AddTracker onPress={deleteTrackedItem}>
+				<TotalTimeText>
+					Total tracked time: {moment.utc((item.elapsed + item.intervalCounter) * 1000).format('HH:mm:ss')}
+				</TotalTimeText>
+				<RemoveTracker onPress={deleteTrackedItem}>
 					<Icon name="delete" size={20} />
-				</AddTracker>
+				</RemoveTracker>
 			</ModalContainer>
 		</AbsoluteFillContainer>
 	);
 };
-
-const Row = styled.View({
-	flexDirection: 'row',
-	justifyContent: 'space-between',
-	alignItems: 'center',
-
-	borderBottomColor: '#ddd',
+const TotalTimeText = styled(Text14)({
+	alignSelf: 'center',
+	marginVertical: 10,
 });
-
 const AbsoluteFillContainer = styled.View({
 	flex: 1,
 	flexGrow: 1,
@@ -66,7 +66,7 @@ const ModalContainer = styled.View({
 	padding: 20,
 });
 
-const AddTracker = styled.TouchableOpacity({
+const RemoveTracker = styled.TouchableOpacity({
 	backgroundColor: '#FF7377',
 	height: 50,
 	width: 50,
