@@ -7,19 +7,24 @@ If there is anything unclear, reach out to us through email.
 
 ### Screenshots
 
-| MainScreen.tsx | DetailsScreen.tsx |
+| MainScreen.tsx | Task details |
 |:-------------------------:|:-------------------------:|
-|<img src="https://user-images.githubusercontent.com/40372583/218203090-c32c8d16-8bf0-446f-82ee-e38472137a1e.png" width="200"/>|<img src="https://user-images.githubusercontent.com/40372583/218203160-781a3cc8-066c-4cdd-a118-7ef659794f3f.png" width="200"/>
+|<img src="https://user-images.githubusercontent.com/40372583/218483339-b81f683d-20e2-4689-bc98-68cddf46c769.png" width="200"/>|<img src="https://user-images.githubusercontent.com/40372583/218203160-781a3cc8-066c-4cdd-a118-7ef659794f3f.png" width="200"/>
 
-| Load more launches | Filter launches by name |
+| Create task | Filter task by name |
 |:-------------------------:|:-------------------------:|
 |<img src="https://user-images.githubusercontent.com/40372583/218203108-2079d805-6521-4f4a-a0d6-d050706411f1.png" width="200"/>|<img src="https://user-images.githubusercontent.com/40372583/218203123-ccb23e01-b8ee-4199-a207-a24a89e322cf.png" width="200"/>
 
-| Loading | Error handling |
-|:-------------------------:|:-------------------------:|
-|<img src="https://user-images.githubusercontent.com/40372583/218203134-5b3bbfcf-7d9b-4bbd-9612-5d187e73c228.png" width="200"/>|<img src="https://user-images.githubusercontent.com/40372583/218203148-1950ac89-5d04-40c8-b64e-1d0dcfc1af36.png" width="200"/>
+| Handle tracking |
+|:-------------------------:|
+<img src="https://user-images.githubusercontent.com/40372583/218203134-5b3bbfcf-7d9b-4bbd-9612-5d187e73c228.png" width="200"/>
 
 
+
+![search](https://user-images.githubusercontent.com/40372583/218483981-2ade66d4-99a2-4152-9914-d0b383f1641d.png)
+![create](https://user-images.githubusercontent.com/40372583/218484025-b0bd4c73-34f5-4c61-be74-7c20a1278503.png)
+![taskInfo](https://user-images.githubusercontent.com/40372583/218484057-8efd5c52-3548-45fb-a7bf-231433af8aad.png)
+![taskTracking](https://user-images.githubusercontent.com/40372583/218484095-717d5507-e51e-45fe-902e-f40d86bc1ab4.png)
 
 
 ## Features
