@@ -1,6 +1,6 @@
-# Launches history browser
+# React Native Time Tracker
 
-This is a basic launches history browser. Your task is to get the data from the GraphQL API and display it on the screen.
+Basic time tracking app in React-Native.
 Cover the features and requirements.
 
 If there is anything unclear, reach out to us through email.
@@ -23,44 +23,17 @@ If there is anything unclear, reach out to us through email.
 
 
 ## Features
-- [ ] As a user I want to see the list of 20 oldest launches from launchesPast collection from https://spacex-production.up.railway.app/
-- [ ] As a user I want to see the "Loading..." when the list is loading
-- [ ] As a user I want to see the "Something went wrong" when there is an error with API connection
-- [ ] As a user I want to see details of each Launch:
-    - mission name
-    - launch date
-    - rocket name
-- [ ] As a user I want to load 20 more launches on button click
-- [ ] As a user I want to be able to find launch (filter the list) by mission name
-- [ ] As a user I want to see "No results" message when there are no results of search by mission name
-- [ ] As a user I want to see Rocket name displayed in gray font color if Rocket is not active
-- [ ] As a user I want to see more info about launch on a separate screen:
-    - details
-    - links
-- [ ] As a user I want to click "Retry" button when fetching the data has failed
 
-## Requirements
-- [ ] Cover the code with tests.
+React Native - recruitment task
 
-## Additional information
-- Styling is up to you. Simple, elegant design.
-- Feel free to add any package/dependency you want to use (eg. UI Kit) but please keep the solution small, clean and neat.
-
-## API endpoints
-- Get the data from https://spacex-production.up.railway.app/
-- It's GraphQL API
-
-## FAQ
-- What's the deadline
-> There is no fixed deadline as we prefer you to focus on quality of your solution. You can let us know when you can start working and send regular
-updates about ongoing progress or any delays.
-- Is TypeScript must have?
-> If you don't know TypeScript feel free to switch to regular JS.
-- Do I have to write tests?
-> We write tests on a daily basis and we have high ( > 80% ) test coverage of our codebase. That's why tests are important for us.
-> However if you don't have any experience with tests and don't want to try to write some basic tests you can still send us your
-> solution and it will be evaluated normally.
-## Available Scripts
+1. The task is to write a simple time tracker with the ability to start / stop.
+2. Tasks require a name.
+3. By default, the application should show a list of tracked tasks along with the amount of time spent on them.
+4. (optional) After pressing the tracked entry, a modal should appear with a primitive view of details (name, tracked time, start time, end time).
+5. (optional) The tracker should allow you to resume work on a post from the past. It may just be a new post with the same title.
+6. Only one entry can be active at a time.
+7. The tracker should allow you to count time in the background and when the application is stopped/killed.
+8. If the application is turned off during time counting, after restarting the time should continue to be counted.
 
 In the project directory, you can run:
 
