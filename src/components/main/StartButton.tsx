@@ -11,14 +11,17 @@ type Props = {
 export const StartButton = observer(({isItemTracked, onPress}: Props) => {
 	return (
 		<StartButtonContainer active={isItemTracked} onPress={onPress}>
-			<AwesomeIcon name={isItemTracked ? 'pause' : 'play'} size={30} />
+			<StyledIcon name={isItemTracked ? 'pause' : 'play'} size={24} />
 		</StartButtonContainer>
 	);
 });
+const StyledIcon = styled(AwesomeIcon)({
+	marginLeft: 2,
+});
 const StartButtonContainer = styled.TouchableOpacity<{active: boolean}>(({active}) => ({
 	backgroundColor: active ? 'gray' : DarkTheme.colors.primary,
-	height: 60,
-	width: 60,
+	height: 50,
+	width: 50,
 	borderRadius: 20,
 	justifyContent: 'center',
 	alignItems: 'center',

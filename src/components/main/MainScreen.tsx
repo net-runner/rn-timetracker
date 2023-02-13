@@ -8,7 +8,7 @@ import {observer} from 'mobx-react-lite';
 import {useStores} from '../../store/RootStore';
 import {Tracker} from './Tracker';
 import {DarkTheme} from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/AntDesign';
+
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AppStackParamList} from '../AppStackProps';
 import {Screen} from '../Screens';
@@ -16,34 +16,37 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 type Props = {} & NativeStackScreenProps<AppStackParamList, Screen.MAIN>;
 
-export const MainScreen = observer(({navigation}: Props) => {
+export const MainScreen = observer(({}: Props) => {
 	const [Filter, setFilter] = useState('');
-	const {trackedItemStore} = useStores();
+	const {
+		trackedItemStore: {trackers, currentlyTrackedItem},
+	} = useStores();
 
 	const handleChange = (val: string) => {
 		setFilter(val);
 	};
 	const launchesFilteredByTrackerName = useMemo(
 		() =>
-			trackedItemStore.trackers.filter(i => {
+			trackers.filter(i => {
 				if (i.name) {
 					return i.name.toLowerCase().includes(Filter.toLowerCase());
 				}
 			}),
-		[Filter, trackedItemStore.trackers],
+		[Filter, trackers],
 	);
+
 	return (
 		<>
 			<FlatList
 				showsVerticalScrollIndicator={false}
 				stickyHeaderIndices={[0]}
-				testID={'flaslist'}
-				data={Filter === '' ? trackedItemStore.trackers : launchesFilteredByTrackerName}
+				keyExtractor={item => item.id}
+				data={Filter === '' ? trackers : launchesFilteredByTrackerName}
 				ListHeaderComponent={
 					<HeaderContainer>
-						{trackedItemStore.currentlyTrackedItem ? (
+						{currentlyTrackedItem ? (
 							<SafeAreaView mode={'margin'} edges={['top']}>
-								<Tracker item={trackedItemStore.currentlyTrackedItem} />
+								<Tracker item={currentlyTrackedItem} />
 							</SafeAreaView>
 						) : (
 							<MainHeader />
@@ -58,27 +61,11 @@ export const MainScreen = observer(({navigation}: Props) => {
 					</MaxFillContainer>
 				}
 			/>
-			<AddTrackerButton
-				onPress={() => navigation.navigate(Screen.TASKCREATE)}
-				onLongPress={() => trackedItemStore.cleanTrackedItems()}>
-				<Icon name="plus" size={20} />
-			</AddTrackerButton>
 		</>
 	);
 });
 const HeaderContainer = styled.View({
 	backgroundColor: DarkTheme.colors.background,
-});
-const AddTrackerButton = styled.TouchableOpacity({
-	backgroundColor: DarkTheme.colors.primary,
-	height: 50,
-	width: 50,
-	borderRadius: 20,
-	justifyContent: 'center',
-	alignItems: 'center',
-	position: 'absolute',
-	bottom: 70,
-	right: 20,
 });
 
 const MaxFillContainer = styled.View({
