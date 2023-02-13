@@ -48,7 +48,7 @@ export const Tracker = observer(({item, info = false}: Props) => {
 						scale: 0.9,
 					}}
 					animate={{
-						opacity: 1,
+						opacity: showButton ? 1 : 0.5,
 						scale: 1,
 					}}>
 					<RowBetween>
