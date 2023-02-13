@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AppStackParamList} from '../AppStackProps';
 import {Screen} from '../Screens';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 type Props = {} & NativeStackScreenProps<AppStackParamList, Screen.MAIN>;
 
@@ -40,7 +41,13 @@ export const MainScreen = observer(({navigation}: Props) => {
 				data={Filter === '' ? trackedItemStore.trackers : launchesFilteredByTrackerName}
 				ListHeaderComponent={
 					<HeaderContainer>
-						<MainHeader />
+						{trackedItemStore.currentlyTrackedItem ? (
+							<SafeAreaView mode={'margin'} edges={['top']}>
+								<Tracker item={trackedItemStore.currentlyTrackedItem} />
+							</SafeAreaView>
+						) : (
+							<MainHeader />
+						)}
 						<SearchBar placeholder="Search trackers..." value={Filter} setValue={handleChange} />
 					</HeaderContainer>
 				}
