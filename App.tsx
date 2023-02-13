@@ -1,3 +1,4 @@
+import 'react-native-get-random-values';
 import {NavigationContainer, DarkTheme} from '@react-navigation/native';
 import React from 'react';
 import {AppStack} from './src/components/AppStack';

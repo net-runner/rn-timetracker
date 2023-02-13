@@ -4,10 +4,10 @@ import {render} from '../../../jest/TestFixtures';
 import {MainHeader} from './MainHeader';
 
 describe('MainHeader', () => {
-	it('renders the default text "SpaceX Launches"', () => {
+	it('renders the default text "Your trackers"', () => {
 		const {getByText} = render(<MainHeader />);
 
-		expect(getByText('SpaceX Launches')).toBeTruthy();
+		expect(getByText('Your trackers')).toBeTruthy();
 	});
 
 	it('renders the provided text', () => {

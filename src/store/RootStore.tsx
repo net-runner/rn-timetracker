@@ -1,13 +1,16 @@
 import {makeAutoObservable} from 'mobx';
 import {createContext, useContext} from 'react';
+import {TrackedItemStore} from '../components/main/store/TrackedItemStore';
 import {Services} from '../services/Services';
 
 export class RootStore {
 	services: Services;
+	trackedItemStore: TrackedItemStore;
 
 	constructor(services: Services) {
-		makeAutoObservable(this);
 		this.services = services;
+		this.trackedItemStore = new TrackedItemStore(this);
+		makeAutoObservable(this);
 	}
 }
 

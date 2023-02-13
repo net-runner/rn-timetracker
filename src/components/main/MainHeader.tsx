@@ -9,7 +9,7 @@ type Props = {
 export const MainHeader = ({text}: Props) => {
 	return (
 		<HeaderContainer testID={'header'} mode={'margin'} edges={['top']}>
-			<MainText>{text ? text : 'SpaceX Launches'}</MainText>
+			<MainText>{text ? text : 'Your trackers'}</MainText>
 		</HeaderContainer>
 	);
 };
@@ -18,7 +18,8 @@ const MainText = styled.Text({
 	color: '#f5f5f5',
 	fontSize: 30,
 	fontWeight: 'bold',
-	textAlign: 'center',
+	textAlign: 'left',
 	marginBottom: 20,
 	marginTop: 10,
+	marginLeft: 10,
 });

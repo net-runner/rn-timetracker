@@ -9,8 +9,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {App} from '../App';
 
-jest.mock('@apollo/client');
-
 it('renders correctly', () => {
 	renderer.create(<App />);
 });

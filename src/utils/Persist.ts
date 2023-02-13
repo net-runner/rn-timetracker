@@ -1,4 +1,5 @@
 import {makePersistable, PersistStoreMap, StorageController} from 'mobx-persist-store';
+import {SerializableProperty} from 'mobx-persist-store/lib/esm2017/serializableProperty';
 
 export const persist = <
 	T extends {
@@ -8,7 +9,7 @@ export const persist = <
 >(
 	store: T,
 	name: string,
-	properties: P[],
+	properties: (P | SerializableProperty<T, P>)[],
 	storageController: StorageController,
 ) => {
 	const persistInStorage = () => {
