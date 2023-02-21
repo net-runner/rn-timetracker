@@ -10,7 +10,7 @@ type Props = {
 };
 export const StartButton = observer(({isItemTracked, onPress}: Props) => {
 	return (
-		<StartButtonContainer active={isItemTracked} onPress={onPress}>
+		<StartButtonContainer testID={'start-button'} active={isItemTracked} onPress={onPress}>
 			<StyledIcon name={isItemTracked ? 'pause' : 'play'} size={24} />
 		</StartButtonContainer>
 	);

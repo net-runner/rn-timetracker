@@ -13,6 +13,10 @@ module.exports = {
 			'@react-native|' +
 			'react-native|' +
 			'react-native-vector-icons|' +
+			'nanoid|' +
+			'react-native-mmkv|' +
+			'react-native-mmkv-flipper-plugin|' +
+			'react-native-flipper|' +
 			'moti|' +
 			'@react-navigation|)/)',
 	],
