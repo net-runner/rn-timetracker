@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "templatemobile.app"
-               BlueprintName = "templatemobile"
-               ReferencedContainer = "container:templatemobile.xcodeproj">
+               BuildableName = "Timetracker.app"
+               BlueprintName = "Timetracker"
+               ReferencedContainer = "container:Timetracker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "templatemobileTests.xctest"
-               BlueprintName = "templatemobileTests"
-               ReferencedContainer = "container:templatemobile.xcodeproj">
+               BuildableName = "TimetrackerTests.xctest"
+               BlueprintName = "TimetrackerTests"
+               ReferencedContainer = "container:Timetracker.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "templatemobile.app"
-            BlueprintName = "templatemobile"
-            ReferencedContainer = "container:templatemobile.xcodeproj">
+            BuildableName = "Timetracker.app"
+            BlueprintName = "Timetracker"
+            ReferencedContainer = "container:Timetracker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "templatemobile.app"
-            BlueprintName = "templatemobile"
-            ReferencedContainer = "container:templatemobile.xcodeproj">
+            BuildableName = "Timetracker.app"
+            BlueprintName = "Timetracker"
+            ReferencedContainer = "container:Timetracker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
