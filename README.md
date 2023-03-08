@@ -22,8 +22,6 @@ If there is anything unclear, reach outthrough email.
 
 ## Features
 
-React Native - recruitment task
-
 1. The task is to write a simple time tracker with the ability to start / stop.
 2. Tasks require a name.
 3. By default, the application should show a list of tracked tasks along with the amount of time spent on them.
